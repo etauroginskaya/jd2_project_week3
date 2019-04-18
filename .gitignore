@@ -1,0 +1,15 @@
+### Folder logs ###
+logs/
+
+### Package Files ###
+*.jar
+*.war
+
+### Intellij IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### Maven ###
+target/
