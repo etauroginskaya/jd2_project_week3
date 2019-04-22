@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.gmail.etauroginskaya</groupId>
+    <artifactId>jd2_project_week3</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>jd2_project_week3</name>
+    <modules>
+        <module>service-module</module>
+        <module>data-module</module>
+        <module>spring-boot-module</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
+        <slf4j.version>1.8.0-beta4</slf4j.version>
+        <spring.version>5.1.6.RELEASE</spring.version>
+        <data-module.version>1.0-SNAPSHOT</data-module.version>
+        <service-module.version>1.0-SNAPSHOT</service-module.version>
+        <spring-boot-module.version>1.0-SNAPSHOT</spring-boot-module.version>
+        <junit.version>4.11</junit.version>
+        <mysql.connector.version>8.0.15</mysql.connector.version>
+        <validation.version>2.0.1.Final</validation.version>
+        <aspect.version>1.9.3</aspect.version>
+    </properties>
+</project>
