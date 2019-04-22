@@ -13,3 +13,9 @@ logs/
 
 ### Maven ###
 target/
+
+### Spring Boot ###
+.mvn
+HELP.md
+mvnw
+mvnw.cmd
