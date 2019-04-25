@@ -4,7 +4,7 @@ import com.gmail.etauroginskaya.service.exception.DatabaseDriverException;
 import com.gmail.etauroginskaya.service.exception.DatabaseException;
 import com.gmail.etauroginskaya.service.exception.DocumentReadException;
 import com.gmail.etauroginskaya.service.exception.FileNotFoundException;
-import com.gmail.etauroginskaya.service.properties.DatabaseProperties;
+import com.gmail.etauroginskaya.data.properties.DatabaseProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

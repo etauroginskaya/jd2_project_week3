@@ -13,18 +13,18 @@
         <th>STATUS</th>
         <th></th>
     </tr>
-    <tr th:each="itemDTO : ${items}" th:object="${itemDTO}">
+    <tr th:each="item : ${items}" th:object="${item}">
         <form action="#" th:action="@{/update}" th:object="${updateItem}" method="post">
-            <td><input hidden th:value="${itemDTO.id}" name="id"/>
+            <td><input hidden th:value="${item.id}" name="id"/>
             </td>
-            <td th:text="${itemDTO.name}"></td>
+            <td th:text="${item.name}"></td>
             <td>
-                <select th:field="*{status}">
-                    <option th:value="${itemDTO.status}" th:text="${itemDTO.status}"/>
-                    <option th:each="itemstatusenum : ${statuses}"
-                            th:if="${!itemDTO.status.equals(itemstatusenum.name())}"
-                            th:utext="${itemstatusenum}"
-                            th:value="${itemstatusenum}"/>
+                <select id="status" name="status">
+                    <option th:each="status :  ${T(com.gmail.etauroginskaya.data.model.ItemStatusEnum).values()}"
+                            th:value="${status}"
+                            th:text="${status}"
+                            th:selected="${status.name()==item.status}">
+                    </option>
                 </select>
             </td>
             <td>

@@ -1,6 +1,5 @@
 package com.gmail.etauroginskaya.springbootmodule.controller;
 
-import com.gmail.etauroginskaya.data.model.ItemStatusEnum;
 import com.gmail.etauroginskaya.service.ItemService;
 import com.gmail.etauroginskaya.service.model.ItemDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,21 +27,18 @@ public class ItemController {
     public String showItems(Model model) {
         List<ItemDTO> items = itemService.getItems();
         model.addAttribute("items", items);
-        model.addAttribute("statuses", EnumSet.allOf(ItemStatusEnum.class));
         model.addAttribute("updateItem", new ItemDTO());
         return "items";
     }
 
     @GetMapping("/add")
-    public String showFormCreateItem(ItemDTO item, Model model) {
-        model.addAttribute("statuses", EnumSet.allOf(ItemStatusEnum.class));
+    public String showFormCreateItem(ItemDTO item) {
         return "item-create";
     }
 
     @PostMapping("/add")
     public String addItem(@Valid ItemDTO item, BindingResult
-            bindingResult, Model model) {
-        model.addAttribute("statuses", EnumSet.allOf(ItemStatusEnum.class));
+            bindingResult) {
         if (bindingResult.hasErrors()) {
             return "item-create";
         }

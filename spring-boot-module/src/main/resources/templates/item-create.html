@@ -17,9 +17,9 @@
             <td>Status:</td>
             <td>
                 <select th:field="*{status}">
-                    <option th:each="itemstatusenum : ${statuses}"
-                            th:value="${itemstatusenum}"
-                            th:utext="${itemstatusenum}"/>
+                    <option th:each="status :  ${T(com.gmail.etauroginskaya.data.model.ItemStatusEnum).values()}"
+                            th:value="${status}"
+                            th:utext="${status}"/>
                 </select></td>
             <td th:if="${#fields.hasErrors('status')}" th:errors="*{status}">Status Error</td>
         </tr>

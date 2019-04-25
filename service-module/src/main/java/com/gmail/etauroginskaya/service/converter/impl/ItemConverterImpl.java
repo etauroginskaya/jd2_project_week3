@@ -11,7 +11,7 @@ public class ItemConverterImpl implements ItemConverter {
     @Override
     public ItemDTO toDTO(Item item) {
         ItemDTO itemDTO = new ItemDTO();
-        itemDTO.setId(String.valueOf(item.getId()));
+        itemDTO.setId(item.getId());
         itemDTO.setName(item.getName());
         itemDTO.setStatus(item.getStatusEnum().name());
         return itemDTO;
@@ -20,9 +20,7 @@ public class ItemConverterImpl implements ItemConverter {
     @Override
     public Item fromDTO(ItemDTO itemDTO) {
         Item item = new Item();
-        if (itemDTO.getId() != null) {
-            item.setId(Long.valueOf(itemDTO.getId()));
-        }
+        item.setId(itemDTO.getId());
         item.setName(itemDTO.getName());
         item.setStatusEnum(ItemStatusEnum.valueOf(itemDTO.getStatus()));
         return item;

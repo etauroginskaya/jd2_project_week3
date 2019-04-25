@@ -38,7 +38,7 @@ public class AuditAspect {
     @AfterReturning(pointcut = "addItemPointcut()", returning = "itemDTO")
     public void afterSuccessAddedItem(ItemDTO itemDTO) {
         AuditItem auditItem = new AuditItem();
-        auditItem.setItem_id(itemDTO.getId());
+        auditItem.setItemID(itemDTO.getId().toString());
         auditItem.setAction(AuditActionEnum.CREATE.name());
         auditItem.setDate(LocalDateTime.now().toString());
         AuditItem saveAuditItem = auditItemService.save(auditItem);
@@ -49,7 +49,7 @@ public class AuditAspect {
     public void afterSuccessUpdateItem(JoinPoint jp) {
         AuditItem auditItem = new AuditItem();
         Object[] args = jp.getArgs();
-        auditItem.setItem_id(args[0].toString());
+        auditItem.setItemID(args[0].toString());
         auditItem.setAction(AuditActionEnum.UPDATED.name());
         auditItem.setDate(LocalDateTime.now().toString());
         AuditItem saveAuditItem = auditItemService.save(auditItem);

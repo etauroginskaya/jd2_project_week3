@@ -23,7 +23,7 @@ public class AuditItemRepositoryImpl implements AuditItemRepository {
     public AuditItem save(Connection connection, AuditItem item) {
         String sql = "INSERT INTO audit(item_id, `action`, `date`) VALUES(?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, item.getItem_id());
+            statement.setString(1, item.getItemID());
             statement.setString(2, item.getAction());
             statement.setString(3, item.getDate());
             int affectedRows = statement.executeUpdate();
@@ -37,7 +37,7 @@ public class AuditItemRepositoryImpl implements AuditItemRepository {
                     saveAuditItem.setId(rs.getString(1));
                     saveAuditItem.setAction(item.getAction());
                     saveAuditItem.setDate(item.getDate());
-                    saveAuditItem.setItem_id(item.getItem_id());
+                    saveAuditItem.setItemID(item.getItemID());
                     return saveAuditItem;
                 } else {
                     logger.error("Creating audit item: " + item + " failed, no ID obtained.");

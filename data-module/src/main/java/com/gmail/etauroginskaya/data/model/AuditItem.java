@@ -4,7 +4,7 @@ public class AuditItem {
 
     private String id;
     private String action;
-    private String item_id;
+    private String itemID;
     private String date;
 
     public String getId() {
@@ -23,12 +23,12 @@ public class AuditItem {
         this.action = action;
     }
 
-    public String getItem_id() {
-        return item_id;
+    public String getItemID() {
+        return itemID;
     }
 
-    public void setItem_id(String item_id) {
-        this.item_id = item_id;
+    public void setItemID(String itemID) {
+        this.itemID = itemID;
     }
 
     public String getDate() {
@@ -41,6 +41,6 @@ public class AuditItem {
 
     @Override
     public String toString() {
-        return date + " : " + action + " : item ID=" + item_id;
+        return date + " : " + action + " : item ID=" + itemID;
     }
 }

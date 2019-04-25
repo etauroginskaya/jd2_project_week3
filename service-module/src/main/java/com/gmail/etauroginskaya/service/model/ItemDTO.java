@@ -5,7 +5,7 @@ import javax.validation.constraints.Size;
 
 public class ItemDTO {
 
-    private String id;
+    private Long id;
 
     @NotBlank(message = "Name cannot be null, empty, or consist of whitespaces only")
     @Size(max = 40, message = "Name should not be greater than 40")
@@ -14,11 +14,11 @@ public class ItemDTO {
     @NotBlank(message = "Status cannot be null, empty, or consist of whitespaces only")
     private String status;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -63,16 +63,14 @@ public class ItemControllerTest {
 
     @Test
     public void shouldRedirectToResultAfterSuccessfullyAddedItem() {
-        Model model = new ExtendedModelMap();
-        String pageAfterAdd = itemController.addItem(new ItemDTO(), bindingResult, model);
+        String pageAfterAdd = itemController.addItem(new ItemDTO(), bindingResult);
         assertThat(pageAfterAdd, equalTo("redirect:/result-add"));
     }
 
     @Test
     public void shouldRedirectToFormItemCreateAfterInvalidAddedItem() {
-        Model model = new ExtendedModelMap();
         when(bindingResult.hasErrors()).thenReturn(true);
-        String pageAfterAdd = itemController.addItem(new ItemDTO(), bindingResult, model);
+        String pageAfterAdd = itemController.addItem(new ItemDTO(), bindingResult);
         assertThat(pageAfterAdd, equalTo("item-create"));
     }
 
@@ -86,7 +84,7 @@ public class ItemControllerTest {
     @Test
     public void shouldRedirectToFormUpdateFalseAfterInvalidUpdatedItem() {
         ItemDTO itemDTO = new ItemDTO();
-        itemDTO.setId("1");
+        itemDTO.setId(1L);
         itemDTO.setStatus("test");
         when(itemService.getStatusById(Long.valueOf(itemDTO.getId()))).thenReturn("test");
         String pageAfterAdd = itemController.updateItem(itemDTO);
@@ -96,7 +94,7 @@ public class ItemControllerTest {
     @Test
     public void shouldRedirectToFormUpdateTrueAfterSuccessfullyUpdatedItem() {
         ItemDTO itemDTO = new ItemDTO();
-        itemDTO.setId("1");
+        itemDTO.setId(1L);
         itemDTO.setStatus("new");
         when(itemService.getStatusById(Long.valueOf(itemDTO.getId()))).thenReturn("old");
         when(itemService.update(Long.valueOf(itemDTO.getId()), itemDTO.getStatus())).thenReturn(1);
